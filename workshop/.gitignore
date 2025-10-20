@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Results directory
+results/
+*.png
+*.mat
+*.csv
+*.log
+
+# Temporary files
+*.tmp
+*~
+.DS_Store
+
+# OpenModelica build artifacts
+*.exe
+*.dll
+*.o
+*.c
+*.h
+*.makefile
+*.libs
+*.json
+*_init.xml
+*_info.json

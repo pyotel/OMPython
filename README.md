@@ -1,10 +1,14 @@
-# OMPython
+# OMPython - Pyotel
 
 OMPython is a Python interface that uses ZeroMQ to
 communicate with OpenModelica.
 
 [![FMITest](https://github.com/OpenModelica/OMPython/actions/workflows/FMITest.yml/badge.svg)](https://github.com/OpenModelica/OMPython/actions/workflows/FMITest.yml)
 [![Test](https://github.com/OpenModelica/OMPython/actions/workflows/Test.yml/badge.svg)](https://github.com/OpenModelica/OMPython/actions/workflows/Test.yml)
+
+## Moelica 예제
+http://modelica.co.kr/board/describing-behavior/basic-equations/basic-equations_examples/an-electrical-example/
+
 
 ## Dependencies
 
