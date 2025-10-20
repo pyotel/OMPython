@@ -97,7 +97,7 @@ python interactive_explorer.py
 
 ## 🔍 모델 정보
 
-**모델 파일:** `../../mo_example/bouncingball.mo`
+**모델 파일:** `../../mo_example/cooling.mo`
 **모델 이름:** `NewtonCoolingDynamic`
 
 **물리적 의미:**

@@ -143,7 +143,7 @@ from OMPython import ModelicaSystem
 
 # 모델 로드
 mod = ModelicaSystem(
-    fileName="../../mo_example/bouncingball.mo",
+    fileName="../../mo_example/cooling.mo",
     modelName="NewtonCoolingDynamic"
 )
 

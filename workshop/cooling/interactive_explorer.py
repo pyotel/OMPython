@@ -165,7 +165,7 @@ class CoolingModelExplorer:
 def main():
     """Main execution function."""
     project_dir = pathlib.Path(__file__).parent.parent.parent
-    model_file = str(project_dir / "mo_example" / "bouncingball.mo")
+    model_file = str(project_dir / "mo_example" / "cooling.mo")
     model_name = "NewtonCoolingDynamic"
 
     print("=" * 70)

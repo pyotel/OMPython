@@ -19,7 +19,7 @@ def main():
 
     # Define paths
     project_dir = pathlib.Path(__file__).parent.parent.parent
-    model_file = project_dir / "mo_example" / "bouncingball.mo"
+    model_file = project_dir / "mo_example" / "cooling.mo"
     model_name = "NewtonCoolingDynamic"
 
     print(f"\nModel file: {model_file}")

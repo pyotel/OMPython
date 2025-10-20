@@ -175,7 +175,7 @@ def main():
     # Define paths
     script_dir = pathlib.Path(__file__).parent
     project_dir = script_dir.parent.parent
-    model_file = project_dir / "mo_example" / "bouncingball.mo"
+    model_file = project_dir / "mo_example" / "cooling.mo"
     model_name = "NewtonCoolingDynamic"
 
     print("=" * 70)

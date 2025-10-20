@@ -54,7 +54,7 @@ python test_basic.py
 Testing Newton Cooling Model Simulation
 ======================================================================
 
-Model file: /path/to/mo_example/bouncingball.mo
+Model file: /path/to/mo_example/cooling.mo
 Model exists: True
 Model name: NewtonCoolingDynamic
 
@@ -174,7 +174,7 @@ mod = ModelicaSystem(fileName=..., modelName=...)
 from OMPython import ModelicaSystem
 
 mod = ModelicaSystem(
-    fileName="../../mo_example/bouncingball.mo",
+    fileName="../../mo_example/cooling.mo",
     modelName="NewtonCoolingDynamic"
 )
 
