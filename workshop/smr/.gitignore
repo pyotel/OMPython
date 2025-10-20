@@ -1,0 +1,54 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Simulation results and plots
+results/
+*.png
+*.jpg
+*.pdf
+*.svg
+
+# OpenModelica simulation artifacts
+*.exe
+*.dll
+*.so
+*.dylib
+*.mat
+*.log
+*.xml
+*.json
+*_init.xml
+*_info.json
+SMR_PowerPlant
+SMR_PowerPlant.*
+*.c
+*.o
+*.h
+*.makefile
+*.libs
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
