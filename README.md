@@ -52,6 +52,56 @@ omc.sendExpression("getVersion()")
 or read the [OMPython documentation](https://openmodelica.org/doc/OpenModelicaUsersGuide/latest/ompython.html)
 online.
 
+## Workshop Examples
+
+The `workshop/` directory contains comprehensive tutorial examples demonstrating OMPython usage:
+
+### Newton Cooling Law (workshop/cooling/)
+
+Demonstrates heat transfer simulation using Newton's Law of Cooling.
+
+**Scripts:**
+- `test_basic.py` - Basic test and verification
+- `simple_example.py` - Simple visualization
+- `simulate_cooling.py` - Parameter study
+- `interactive_explorer.py` - Interactive dashboard
+
+**Quick Start:**
+```bash
+cd workshop/cooling
+pip install -r requirements.txt
+python3 test_basic.py
+```
+
+See [workshop/cooling/README.md](workshop/cooling/README.md) for details.
+
+### Small Modular Reactor (workshop/smr/)
+
+SMR (Small Modular Reactor) power plant simulation with thermal-to-electric conversion.
+
+**Scripts:**
+- `test_basic.py` - Basic SMR simulation test
+- `visualize_smr.py` - Comprehensive visualizations (4-panel analysis, energy flow, transient response)
+- `parameter_study.py` - Parameter sweeps and sensitivity analysis
+- `interactive_dashboard.py` - Real-time interactive control
+
+**Quick Start:**
+```bash
+cd workshop/smr
+pip install -r requirements.txt
+python3 test_basic.py
+python3 visualize_smr.py  # Generates 3 visualization plots
+```
+
+See [workshop/smr/README.md](workshop/smr/README.md) for details.
+
+**Model Equations:**
+```
+dT_core/dt = (Q_fission - Q_transfer) / (m_coolant * Cp)
+Q_transfer = UA * (T_core - T_steam)
+P_electric = Q_transfer * eff_thermal
+```
+
 ## Bug Reports
 
   - Submit bugs through the [OpenModelica GitHub issues](https://github.com/OpenModelica/OMPython/issues/new).
