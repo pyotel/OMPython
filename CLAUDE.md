@@ -168,3 +168,198 @@ Follow pattern for get/set methods:
 - Raise `OMCSessionException` for OMC communication issues
 - Use logger (logging module) for debug/info/warning messages
 - Check OMC error messages via `getMessagesStringInternal()`
+
+## Workshop Examples
+
+The `workshop/` directory contains tutorial examples demonstrating OMPython usage with different Modelica models. Each workshop includes test scripts, visualization tools, parameter studies, and interactive dashboards.
+
+### Directory Structure
+
+```
+workshop/
+├── cooling/          # Newton Cooling Law example
+│   ├── test_basic.py
+│   ├── simple_example.py
+│   ├── simulate_cooling.py
+│   ├── interactive_explorer.py
+│   ├── README.md
+│   ├── QUICKSTART.md
+│   ├── INDEX.md
+│   ├── requirements.txt
+│   └── .gitignore
+│
+└── smr/              # Small Modular Reactor example
+    ├── test_basic.py
+    ├── visualize_smr.py
+    ├── parameter_study.py
+    ├── interactive_dashboard.py
+    ├── README.md
+    ├── requirements.txt
+    └── .gitignore
+
+mo_example/
+├── cooling.mo        # NewtonCoolingDynamic model
+└── srm.mo           # SMR_PowerPlant model
+```
+
+### Workshop: Cooling (workshop/cooling/)
+
+**Model:** `mo_example/cooling.mo` - NewtonCoolingDynamic
+
+Newton's Law of Cooling simulation demonstrating heat transfer from a hot body to ambient environment.
+
+**Key Parameters:**
+- `T0` (K): Initial temperature
+- `h` (W/m²·K): Heat transfer coefficient
+- `A` (m²): Surface area
+- `m` (kg): Mass
+- `c_p` (J/kg·K): Specific heat capacity
+
+**Scripts:**
+1. `test_basic.py` - Basic test without GUI, verifies model loading and simulation
+2. `simple_example.py` - Simple visualization with 2 plots (temperature, cooling rate)
+3. `simulate_cooling.py` - Parameter study comparing different heat transfer coefficients
+4. `interactive_explorer.py` - Interactive dashboard with real-time parameter adjustment
+
+**Typical Usage:**
+```bash
+cd workshop/cooling
+python3 test_basic.py                # Basic test
+python3 simple_example.py            # Simple visualization
+python3 simulate_cooling.py          # Parameter study
+python3 interactive_explorer.py      # Interactive dashboard
+```
+
+### Workshop: SMR (workshop/smr/)
+
+**Model:** `mo_example/srm.mo` - SMR_PowerPlant
+
+Small Modular Reactor power plant simulation with thermal-to-electric conversion.
+
+**Key Parameters:**
+- `Q_fission` (W): Nuclear fission heat output (default: 100 MW)
+- `eff_thermal`: Thermal-to-electric efficiency (default: 0.35)
+- `UA` (W/K): Heat exchanger thermal conductance (default: 50 kW/K)
+- `m_coolant` (kg): Coolant mass (default: 500 kg)
+
+**Key Variables:**
+- `T_core` (K): Core coolant temperature
+- `Q_transfer` (W): Heat transfer rate
+- `P_electric` (W): Electric power output
+
+**Model Equations:**
+```
+dT_core/dt = (Q_fission - Q_transfer) / (m_coolant * Cp)
+Q_transfer = UA * (T_core - T_steam)
+P_electric = Q_transfer * eff_thermal
+```
+
+**Scripts:**
+1. `test_basic.py` - Basic SMR simulation test with result verification
+2. `visualize_smr.py` - Comprehensive visualizations:
+   - 4-panel analysis (temperature, heat transfer, power, efficiency)
+   - Energy flow diagram (Sankey-style bar chart)
+   - Transient response analysis (derivatives, settling time)
+3. `parameter_study.py` - Systematic parameter sweeps:
+   - UA: [30, 50, 70, 90 kW/K]
+   - eff_thermal: [0.25, 0.30, 0.35, 0.40]
+   - m_coolant: [300, 500, 700, 900 kg]
+   - Sensitivity analysis comparing all parameters
+4. `interactive_dashboard.py` - Real-time interactive control:
+   - Adjustable sliders for 4 parameters
+   - Live plot updates (temperature, power output)
+   - Operating status display
+
+**Typical Usage:**
+```bash
+cd workshop/smr
+python3 test_basic.py                # Basic test (~5s)
+python3 visualize_smr.py             # Generate 3 visualizations (~15-20s)
+python3 parameter_study.py           # Parameter sweep study (~2-3 min)
+python3 interactive_dashboard.py     # Interactive dashboard
+```
+
+### Workshop Development Pattern
+
+When creating new workshop examples, follow this pattern:
+
+**1. Python Script Path Setup:**
+```python
+import sys
+import pathlib
+
+# Add OMPython to path (scripts are 3 levels deep: workshop/{name}/*.py)
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
+
+from OMPython import ModelicaSystem
+```
+
+**2. Model Path Reference:**
+```python
+project_dir = pathlib.Path(__file__).parent.parent.parent
+model_file = project_dir / "mo_example" / "model_name.mo"
+```
+
+**3. Basic Simulation Pattern:**
+```python
+mod = ModelicaSystem(
+    fileName=str(model_file),
+    modelName="ModelName",
+    build=True
+)
+
+mod.setSimulationOptions({
+    'stopTime': '1000',
+    'stepSize': '1.0',
+    'tolerance': '1e-6'
+})
+
+mod.setParameters({'param1': 'value1', 'param2': 'value2'})
+mod.simulate()
+
+# Extract results
+time = mod.getSolutions("time")[0]
+var1 = mod.getSolutions("var1")[0]
+```
+
+**4. Required Files:**
+- `test_basic.py` - Basic test without visualization
+- Visualization scripts - At least one plot generation script
+- `README.md` - Documentation with model description and usage
+- `requirements.txt` - Python dependencies (matplotlib, numpy, etc.)
+- `.gitignore` - Exclude results/, simulation artifacts, Python cache
+
+**5. .gitignore Pattern:**
+```gitignore
+# Python cache
+__pycache__/
+*.pyc
+
+# Simulation results
+results/
+*.png
+*.pdf
+
+# OpenModelica artifacts
+*.exe
+*.mat
+*.log
+*.xml
+*.c
+*.o
+```
+
+### Workshop Dependencies
+
+Install workshop dependencies:
+```bash
+cd workshop/{name}
+pip install -r requirements.txt
+```
+
+Common requirements:
+- `matplotlib>=3.5.0` - Plotting
+- `numpy>=1.21.0` - Numerical operations
+- `pyzmq>=22.0.0` - OMC communication
+- `pyparsing>=3.0.0` - Parsing
+- `psutil>=5.8.0` - Process management
