@@ -8,14 +8,14 @@ import pathlib
 import matplotlib.pyplot as plt
 
 # Add parent directory to path
-sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
 
 from OMPython import ModelicaSystem
 
 
 def main():
     # Define paths
-    project_dir = pathlib.Path(__file__).parent.parent
+    project_dir = pathlib.Path(__file__).parent.parent.parent
     model_file = project_dir / "mo_example" / "bouncingball.mo"
     model_name = "NewtonCoolingDynamic"
 

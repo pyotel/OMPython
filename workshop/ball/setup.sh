@@ -7,15 +7,15 @@ echo "=========================================="
 echo ""
 
 # Check if we're in the right directory
-if [ ! -f "../pyproject.toml" ]; then
-    echo "Error: Please run this script from the workshop directory"
+if [ ! -f "../../pyproject.toml" ]; then
+    echo "Error: Please run this script from the workshop/ball directory"
     exit 1
 fi
 
 echo "[1/3] Installing OMPython..."
-cd ..
+cd ../..
 python3 -m pip install -e .
-cd workshop
+cd workshop/ball
 
 echo ""
 echo "[2/3] Installing additional requirements..."
@@ -32,7 +32,7 @@ echo "=========================================="
 echo "✓ Setup complete!"
 echo "=========================================="
 echo ""
-echo "You can now run the examples:"
+echo "You can now run the examples from workshop/ball:"
 echo "  python test_basic.py           # Basic test"
 echo "  python simple_example.py       # Simple example with plot"
 echo "  python simulate_cooling.py     # Parameter study"

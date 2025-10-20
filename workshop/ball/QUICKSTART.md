@@ -19,19 +19,19 @@ omc --version
 자동 설치 스크립트 사용:
 
 ```bash
-cd workshop
+cd workshop/ball
 ./setup.sh
 ```
 
 또는 수동 설치:
 
 ```bash
-# OMPython 설치
-cd ..
+# OMPython 설치 (프로젝트 루트에서)
+cd ../..
 pip install -e .
 
 # 추가 패키지 설치
-cd workshop
+cd workshop/ball
 pip install -r requirements.txt
 ```
 
@@ -174,7 +174,7 @@ mod = ModelicaSystem(fileName=..., modelName=...)
 from OMPython import ModelicaSystem
 
 mod = ModelicaSystem(
-    fileName="../mo_example/bouncingball.mo",
+    fileName="../../mo_example/bouncingball.mo",
     modelName="NewtonCoolingDynamic"
 )
 

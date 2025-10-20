@@ -27,7 +27,7 @@ m * c_p * dT/dt = h * A * (T_inf - T)
 가장 간단한 시뮬레이션 예제입니다. 모델을 로드하고, 파라미터를 설정하고, 시뮬레이션을 실행한 후 결과를 플롯합니다.
 
 ```bash
-python workshop/simple_example.py
+python simple_example.py
 ```
 
 **기능:**
@@ -46,7 +46,7 @@ python workshop/simple_example.py
 여러 파라미터 값으로 시뮬레이션을 반복하여 각 파라미터의 영향을 분석합니다.
 
 ```bash
-python workshop/simulate_cooling.py
+python simulate_cooling.py
 ```
 
 **기능:**
@@ -72,7 +72,7 @@ python workshop/simulate_cooling.py
 실시간으로 파라미터를 조정하면서 시뮬레이션 결과를 확인할 수 있는 인터랙티브 도구입니다.
 
 ```bash
-python workshop/interactive_explorer.py
+python interactive_explorer.py
 ```
 
 **기능:**
@@ -143,7 +143,7 @@ from OMPython import ModelicaSystem
 
 # 모델 로드
 mod = ModelicaSystem(
-    fileName="../mo_example/bouncingball.mo",
+    fileName="../../mo_example/bouncingball.mo",
     modelName="NewtonCoolingDynamic"
 )
 

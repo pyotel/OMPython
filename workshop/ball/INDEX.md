@@ -1,9 +1,9 @@
-# Workshop 디렉토리 인덱스
+# Workshop Ball 디렉토리 인덱스
 
 ## 📁 파일 구조
 
 ```
-workshop/
+workshop/ball/
 ├── README.md                    # 상세한 문서 및 사용법
 ├── QUICKSTART.md               # 빠른 시작 가이드 (한글)
 ├── INDEX.md                    # 이 파일
@@ -97,7 +97,7 @@ python interactive_explorer.py
 
 ## 🔍 모델 정보
 
-**모델 파일:** `../mo_example/bouncingball.mo`  
+**모델 파일:** `../../mo_example/bouncingball.mo`
 **모델 이름:** `NewtonCoolingDynamic`
 
 **물리적 의미:**

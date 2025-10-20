@@ -11,7 +11,7 @@ from matplotlib.widgets import Slider
 import numpy as np
 
 # Add parent directory to path
-sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
 
 from OMPython import ModelicaSystem
 
@@ -164,7 +164,7 @@ class CoolingModelExplorer:
 
 def main():
     """Main execution function."""
-    project_dir = pathlib.Path(__file__).parent.parent
+    project_dir = pathlib.Path(__file__).parent.parent.parent
     model_file = str(project_dir / "mo_example" / "bouncingball.mo")
     model_name = "NewtonCoolingDynamic"
 

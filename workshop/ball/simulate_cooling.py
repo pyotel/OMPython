@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Add parent directory to path to import OMPython
-sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent.parent))
 
 from OMPython import ModelicaSystem
 
@@ -174,7 +174,7 @@ def main():
 
     # Define paths
     script_dir = pathlib.Path(__file__).parent
-    project_dir = script_dir.parent
+    project_dir = script_dir.parent.parent
     model_file = project_dir / "mo_example" / "bouncingball.mo"
     model_name = "NewtonCoolingDynamic"
 
